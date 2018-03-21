@@ -6,15 +6,6 @@ ARG USER_ID
 ARG GROUP_ID
 
 ENV HOME /dash
-RUN apt-get update
-RUN apt-get dist-upgrade -y
-RUN apt-get -y install python-software-properties
-RUN apt-get -y install software-properties-common
-RUN apt-get -y install build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
-RUN apt-get -y install libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
-RUN add-apt-repository ppa:bitcoin/bitcoin
-RUN apt-get update
-RUN apt-get -y install libdb4.8-dev libdb4.8++-dev
 
 # add user with specified (or default) user/group ids
 ENV USER_ID ${USER_ID:-1000}
@@ -25,9 +16,9 @@ RUN useradd -u ${USER_ID} -g dash -s /bin/bash -m -d /dash dash
 RUN mkdir /dash/.dashcore
 RUN chown dash:dash -R /dash
 
-COPY ./dashd /usr/local/bin
-COPY ./dash-cli /usr/local/bin
-COPY ./dash-tx /usr/local/bin
+COPY ./dash/depends/x86_64-pc-linux-gnu/bin/dashd /usr/local/bin
+COPY ./dash/depends/x86_64-pc-linux-gnu/bin/dash-cli /usr/local/bin
+COPY ./dash/depends/x86_64-pc-linux-gnu/bin/dash-tx /usr/local/bin
 COPY dash.conf /dash/.dashcore
 
 RUN chmod a+x /usr/local/bin/*
