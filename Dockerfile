@@ -6,7 +6,7 @@ ARG USER_ID
 ARG GROUP_ID
 
 ENV HOME /dash
-RUN apt-get update	
+RUN apt-get update
 RUN apt-get dist-upgrade -y
 RUN apt-get -y install python-software-properties
 RUN apt-get -y install software-properties-common
@@ -22,11 +22,13 @@ ENV GROUP_ID ${GROUP_ID:-1000}
 RUN groupadd -g ${GROUP_ID} dash
 RUN useradd -u ${USER_ID} -g dash -s /bin/bash -m -d /dash dash
 
+RUN mkdir /dash/.dashcore
 RUN chown dash:dash -R /dash
 
 COPY ./dashd /usr/local/bin
 COPY ./dash-cli /usr/local/bin
 COPY ./dash-tx /usr/local/bin
+COPY dash.conf /dash/.dashcore
 
 RUN chmod a+x /usr/local/bin/*
 
@@ -38,7 +40,7 @@ USER dash
 
 VOLUME ["/dash"]
 
-EXPOSE 9998 9999 19998 19999
+EXPOSE 9998 9999 19998 19999 19994 19995
 
 WORKDIR /dash
 
