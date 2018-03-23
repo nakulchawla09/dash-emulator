@@ -23,6 +23,8 @@ COPY dash.conf /dash/.dashcore
 
 RUN chmod a+x /usr/local/bin/*
 
+RUN echo "alias rt='dash-cli -regtest'" >> ~/.bashrc
+
 # For some reason, docker.io (0.9.1~dfsg1-2) pkg in Ubuntu 14.04 has permission
 # denied issues when executing /bin/bash from trusted builds.  Building locally
 # works fine (strange).  Using the upstream docker (0.11.1) pkg from
@@ -31,8 +33,16 @@ USER dash
 
 VOLUME ["/dash"]
 
-EXPOSE 9998 9999 19998 19999 19994 19995
+# EXPOSE 9998 9999 19998 19999 19994 19995
 
 WORKDIR /dash
 
-# CMD ["dash_oneshot"]
+## initiating dash commands
+
+# CMD ["bash"]
+# RUN ["dashd", "-regtest", "-daemon"]
+
+
+
+
+
