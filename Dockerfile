@@ -1,6 +1,6 @@
 # FROM phusion/baseimage
 FROM ubuntu
-MAINTAINER Holger Schinzel <holger@dash.org>
+MAINTAINER Nakul Chawla <nakulchawla09@gmail.com> Cody Bales
 
 ARG USER_ID
 ARG GROUP_ID
