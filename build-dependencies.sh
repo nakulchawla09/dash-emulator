@@ -25,6 +25,10 @@ checkAndInstallPackage "python3-dev"
 checkAndInstallPackage "python3-setuptools"
 checkAndInstallPackage "build-essential"
 checkAndInstallPackage "cmake"
+checkAndInstallPackage "autotools-dev"
+checkAndInstallPackage "autoconf"
+checkAndInstallPackage "libevent-dev"
+checkAndInstallPackage "libboost-all-dev"
 
 
 
@@ -40,14 +44,14 @@ rm -rf msgpack-2.1.1.tar.gz
 rm -rf msgpack-2.1.1
 
 # clone the repo
-git clone https://github.com/savoirfairelinux/opendht.git
+# git clone https://github.com/savoirfairelinux/opendht.git
 
 # build and install
-cd opendht
-mkdir build && cd build
-cmake -DOPENDHT_PYTHON=ON -DCMAKE_INSTALL_PREFIX=/usr ..
-make -j4
-sudo make install
-
-cd ..
-rm -rf opendht
+# cd opendht
+# mkdir build && cd build
+# cmake -DOPENDHT_PYTHON=ON -DCMAKE_INSTALL_PREFIX=/usr ..
+# make -j4
+# sudo make install
+#
+# cd ..
+# rm -rf opendht

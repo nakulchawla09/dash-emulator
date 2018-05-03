@@ -6,7 +6,7 @@ import sys
 import random
 import pdb
 
-num_nodes=int(os.popen("docker ps | wc -l").read()) - 1
+num_nodes=int(os.popen("sudo docker ps | wc -l").read()) - 1
 print num_nodes
 
 min_connections = {}
@@ -14,18 +14,18 @@ max_connections = {}
 nodes_connections = {}
 
 def create_command(src,dest):
-    init_command = "docker inspect node_" + str(dest) + " --format '{{ .NetworkSettings.IPAddress}}'"
+    init_command = "sudo docker inspect node_" + str(dest) + " --format '{{ .NetworkSettings.IPAddress}}'"
     dest_ipaddress = subprocess.check_output(init_command, shell=True).strip()
-    commandToReturn = "docker exec -t node_" + str(src) + " dash-cli -regtest addnode " + dest_ipaddress + " onetry"
+    commandToReturn = "sudo docker exec -t node_" + str(src) + " dash-cli -regtest addnode " + dest_ipaddress + " onetry"
     return commandToReturn
 
 # change min_connections to piecewise_distribution from 8 to 20 with higher probablities to 8-10
 
 for i in range(num_nodes):
-    min_connections[i] = 8
+    min_connections[i] = 4
 
 for j in range(num_nodes):
-    max_connections[j] = 12
+    max_connections[j] = 6
 
 for k in range(num_nodes):
     nodes_connections[k] = [-1]

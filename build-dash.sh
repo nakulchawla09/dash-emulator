@@ -7,6 +7,7 @@
 # checkAndInstallPackage (libdb4.8++-dev)
 
 git clone https://github.com/nakulchawla09/dash.git 
+git checkout shard
 
 # Build dependencies
 
@@ -17,7 +18,7 @@ make NO_QT=1
 
 cd ..
 ./autogen.sh
-./configure --without-gui --disable-tests --prefix=$PWD/depends/x86_64-pc-linux-gnu --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++ --enable-static
+./configure --without-gui --disable-tests --prefix=$PWD/depends/x86_64-pc-linux-gnu --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++ --enable-static --disable-wallet
 make
 strip src/dashd src/dash-cli src/dash-tx
 sudo make install
