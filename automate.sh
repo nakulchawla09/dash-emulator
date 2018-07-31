@@ -2,7 +2,7 @@
 inport=18444
 outport=18332
 echo $LD_LIBRARY_PATH
-for i in $(seq 0 20)
+for i in $(seq 0 24)
 do
 	#echo $i
 	x="node_"$i
