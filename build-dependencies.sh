@@ -29,6 +29,23 @@ checkAndInstallPackage "autotools-dev"
 checkAndInstallPackage "autoconf"
 checkAndInstallPackage "libevent-dev"
 checkAndInstallPackage "libboost-all-dev"
+checkAndInstallPackage "build-essential"
+checkAndInstallPackage "libtool"
+checkAndInstallPackage "autotools-dev"
+checkAndInstallPackage "automake"
+checkAndInstallPackage "pkg-config"
+checkAndInstallPackage "libssl-dev"
+checkAndInstallPackage "libevent-dev"
+checkAndInstallPackage "bsdmainutils"
+checkAndInstallPackage "libminiupnpc-dev"
+checkAndInstallPackage "libzmq3-dev"
+checkAndInstallPackage "libqrencode-dev"
+
+sudo add-apt-repository -y ppa:bitcoin/bitcoin
+sudo apt-get update
+
+checkAndInstallPackage "libdb4.8-dev"
+checkAndInstallPackage "libdb4.8++-dev"
 
 
 
@@ -43,15 +60,3 @@ cd ..
 rm -rf msgpack-2.1.1.tar.gz
 rm -rf msgpack-2.1.1
 
-# clone the repo
-# git clone https://github.com/savoirfairelinux/opendht.git
-
-# build and install
-# cd opendht
-# mkdir build && cd build
-# cmake -DOPENDHT_PYTHON=ON -DCMAKE_INSTALL_PREFIX=/usr ..
-# make -j4
-# sudo make install
-#
-# cd ..
-# rm -rf opendht
