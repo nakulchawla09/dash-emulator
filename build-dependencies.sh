@@ -9,6 +9,16 @@ checkAndInstallPackage()
 
 }
 
+checkAndInstallPackageMacOS()
+{
+
+    if brew ls --versions myformula > /dev/null; then
+        continue
+    else
+        brew install $1
+    fi
+}
+
 
 checkAndInstallPackage "libboost-system-dev"
 checkAndInstallPackage "libboost-filesystem-dev"
