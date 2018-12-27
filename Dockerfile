@@ -1,6 +1,6 @@
 # FROM phusion/baseimage
 FROM ubuntu
-MAINTAINER Nakul Chawla <nakulchawla09@gmail.com> Cody Bales Chaynika Saikia
+MAINTAINER Nakul Chawla <nakulchawla09@gmail.com>
 
 ARG USER_ID
 ARG GROUP_ID

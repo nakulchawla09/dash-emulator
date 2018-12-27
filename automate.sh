@@ -1,4 +1,8 @@
 #!/bin/sh
+
+docker system prune -a
+docker build -t dash .
+
 inport=18444
 outport=18332
 echo $LD_LIBRARY_PATH
