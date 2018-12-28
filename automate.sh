@@ -17,3 +17,5 @@ do
 	outport=$((outport+1))
 	inport=$((inport+1))
 done
+
+python connect_nodes.py
